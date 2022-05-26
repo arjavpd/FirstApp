@@ -28,6 +28,13 @@ class App extends Component {
 			ninjas: ninjasCopy,
 		});
 	};
+	componentDidMount() {
+		console.log('component moounted');
+	}
+	componentDidUpdate(prevProps, prevState) {
+		console.log('component updated');
+		console.log(prevProps, prevState);
+	}
 	render() {
 		console.log(this.props); //use 'this.props' to access props
 		return (
