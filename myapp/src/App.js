@@ -19,12 +19,21 @@ class App extends Component {
 			ninjas: ninjasCopy,
 		});
 	};
+	deleteNinja = id => {
+		let ninjasCopy = this.state.ninjas.filter(ninja => {
+			return ninja.id != id;
+			//returning false, filters the item out of the list
+		});
+		this.setState({
+			ninjas: ninjasCopy,
+		});
+	};
 	render() {
 		console.log(this.props); //use 'this.props' to access props
 		return (
 			<div className="App">
 				<h1>My first React app</h1>
-				<Ninjas ninjas={this.state.ninjas} />
+				<Ninjas deleteNinja={this.deleteNinja} ninjas={this.state.ninjas} />
 				<AddNinja addNinja={this.addNinja} />
 			</div>
 		);
