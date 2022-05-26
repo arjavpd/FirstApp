@@ -14,7 +14,7 @@ class AddNinja extends Component {
 	};
 	handleSubmit = e => {
 		e.preventDefault(); //stops default action of submitting(refreshing page)
-		console.log(this.state);
+		this.props.addNinja(this.state);
 	};
 	render() {
 		return (

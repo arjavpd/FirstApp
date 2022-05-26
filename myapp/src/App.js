@@ -10,13 +10,22 @@ class App extends Component {
 			{name: 'Crystal', age: 25, belt: 'pink', id: 3},
 		],
 	};
+	addNinja = newNinja => {
+		//Store what ever returns from function 'addNinja' to 'newNinja'
+		//Bad practice to change states directly, lets make a copy of array and use set state
+		newNinja.id = Math.random();
+		let ninjasCopy = [...this.state.ninjas, newNinja]; //Spread operator
+		this.setState({
+			ninjas: ninjasCopy,
+		});
+	};
 	render() {
 		console.log(this.props); //use 'this.props' to access props
 		return (
 			<div className="App">
 				<h1>My first React app</h1>
 				<Ninjas ninjas={this.state.ninjas} />
-				<AddNinja />
+				<AddNinja addNinja={this.addNinja} />
 			</div>
 		);
 	}
