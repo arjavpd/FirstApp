@@ -1,5 +1,7 @@
 //function because Ninjas is a UI component
+//Passing a value with function on an event  calls it, so put it through a annoymous function to avoid that
 import React from 'react';
+import './Ninjas.css';
 
 const Ninjas = ({ninjas, deleteNinja}) => {
 	const ninjaList = ninjas.map(ninja => {
